@@ -37,19 +37,73 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+Full Adder
+Sum =A’B’Cin + A’BCin’ + ABCin + AB’Cin’ = A ⊕ B ⊕ Cin
+Carry = AB + ACin + BCin
+![image](https://github.com/user-attachments/assets/8c40590e-ecaa-4c64-8778-0b0d5685d26f)
+
+Full Subtractor
+Diff = A ⊕ B ⊕ Bin
+Borrow out = A'Bin + A'B + BBin
+![image](https://github.com/user-attachments/assets/189c428f-3ee9-446e-b5ee-8e6f398bc440)
 
 **Procedure**
-
-Write the detailed procedure here
+1.Write the detailed procedure here
+2.type the program in Quartus software.
+3.Compile and run the program.
+4.Generate the RTL schematic and save the logic diagram.
+5.Create nodes for inputs and outputs to generate the timin diagram.
+6.For different input combinations generaye the timing diagram.
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+```
+Full Adder
+Sum =A’B’Cin + A’BCin’ + ABCin + AB’Cin’ = A ⊕ B ⊕ Cin
+Carry = AB + ACin + BCin
+module fa(a,b,cin,sum,carry);
+input a,b,cin;
+output sum,carry;
+assign sum=( (a ^ b)^cin);
+assign carry= ( (a & b)| ( cin &(a ^ b )));
+endmodule
+
+FULL SUBTRACTOR
+Diff = A ⊕ B ⊕ Bin
+Borrow out = A'Bin + A'B + BBin
+module fs(a,b,bin,difference,borrow);
+input a,b,bin;
+output difference,borrow;
+assign difference= ( (a ^ b)^bin);
+assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b ))));
+endmodule
+```
+
+Developed by:P.Madhushri
+
+RegisterNumber:24005365
 */
+**RTL**
+Full Adder
+Sum =A’B’Cin + A’BCin’ + ABCin + AB’Cin’ = A ⊕ B ⊕ Cin
+Carry = AB + ACin + BCin
+![image](https://github.com/user-attachments/assets/51c687a5-ad6c-4771-8a5d-31d4a8ee45c2)
+FULL SUBTRACTOR
+Diff = A ⊕ B ⊕ Bin
+Borrow out = A'Bin + A'B + BBin
+![image](https://github.com/user-attachments/assets/bb904035-6377-4f14-86a8-c50bf43f474c)
 
-**RTL Schematic**
+**Output**
+Full Adder
+Sum =A’B’Cin + A’BCin’ + ABCin + AB’Cin’ = A ⊕ B ⊕ Cin
+Carry = AB + ACin + BCin
+![image](https://github.com/user-attachments/assets/e74c4f93-898a-4b8a-bb44-3840778bdebc)
 
-**Output Timing Waveform**
+FULL SUBTRACTOR
+Diff = A ⊕ B ⊕ Bin
+Borrow out = A'Bin + A'B + BBin
+![image](https://github.com/user-attachments/assets/a76a10d8-4a2a-481c-b9ee-b3685af24517)
 
 **Result:**
 
